@@ -38,7 +38,6 @@ abstract class AbstractOption<T> {
   abstract unwrap(defaultVal: T): T
 }
 
-
 export class Some<T> extends AbstractOption<T> {
   value: T
 
@@ -55,13 +54,11 @@ export class Some<T> extends AbstractOption<T> {
     return false
   }
 
-  map <S>(fn: (value: T) => S): Some<S> {
-    return new Some(
-      fn(this.value)
-    )
+  map<S>(fn: (value: T) => S): Some<S> {
+    return new Some(fn(this.value))
   }
 
-  filter (predicate: (value: T) => boolean): Some<T> | None<T> {
+  filter(predicate: (value: T) => boolean): Some<T> | None<T> {
     if (predicate(this.value)) {
       return this
     } else {
@@ -69,7 +66,7 @@ export class Some<T> extends AbstractOption<T> {
     }
   }
 
-  unwrap (_defaultVal: T): T {
+  unwrap(_defaultVal: T): T {
     return this.value
   }
 }
@@ -79,19 +76,19 @@ export class None<T> extends AbstractOption<T> {
     return false
   }
 
-  isNone () {
+  isNone() {
     return true
   }
 
-  map <S>(_fn: (value: T) => S): None<S> {
+  map<S>(_fn: (value: T) => S): None<S> {
     return new None<S>()
   }
 
-  filter (_predicate: (value: T) => boolean): None<T> {
+  filter(_predicate: (value: T) => boolean): None<T> {
     return this
   }
 
-  unwrap (defaultVal: T): T {
+  unwrap(defaultVal: T): T {
     return defaultVal
   }
 }
@@ -106,7 +103,7 @@ export class None<T> extends AbstractOption<T> {
  * const some = toOption("hello!")
  * const optionalNumber = new Some(13)
  * ```
-  */
+ */
 export type Option<T> = Some<T> | None<T>
 
 /**

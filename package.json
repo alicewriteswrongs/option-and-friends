@@ -16,6 +16,7 @@
     "typescript": "rm -rf dist && rm -f .tsbuildinfo && tsc",
     "typecheck": "tsc --noEmit",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "fmt": "prettier --write --no-semi src/*.ts"
   }
 }
