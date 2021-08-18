@@ -1,11 +1,13 @@
 {
   "name": "option-and-friends",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Rust-inspired data structures for TypeScript",
   "main": "dist/index.js",
   "author": "Alice Pote",
   "license": "MIT",
-  "files": [ "dist/*" ],
+  "files": [
+    "dist/*"
+  ],
   "devDependencies": {
     "@types/jest": "^27.0.1",
     "jest": "^27.0.6",
